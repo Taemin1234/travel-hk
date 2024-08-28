@@ -1,16 +1,27 @@
-import { ReactComponent as Map } from '../assets/img/honkong_map.svg'; // SVG 파일을 ReactComponent로 가져옴
+import React, { useState } from 'react';
+
+import Map from "./Map"
+
+
 
 function TravelInfo() {
+    const [selectedArea, setSelectedArea] = useState(null)
 
     const cEvent = (e) => {
         if (e.target.tagName === 'path') {
-            console.log(`클릭 : ${e.target.id}`)
-          }
+            const selected = e.target.id;
+            setSelectedArea(selected);
+        }
+        
     }
+
+    console.log(selectedArea)
+   
+    
 
     return (
         <div>
-            <Map onClick={cEvent} style={{width:'100%'}}/>
+           <Map onClick={cEvent} selectedArea={selectedArea}/>
         </div>
     )    
 }
