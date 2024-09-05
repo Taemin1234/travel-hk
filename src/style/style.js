@@ -54,6 +54,7 @@ export const GnbButton = styled.button`
 //Map 지도 화면
 export const StyledMap = styled.div`
   svg path {
+    position: relative;
     /* fill: #eee; */
     transition: fill 0.3s;
     
