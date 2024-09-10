@@ -1,0 +1,77 @@
+{
+    "HK-KI": {
+        "k_name" : "콰이칭",
+        "hotels": [
+        ],
+        "restaurant": [
+            { "id": 1, 
+                "name": "아미투오포수신유안", 
+                "sub_title" :"승려들이 자주 찾는 비건식 불교식당",
+                "cuisine" :"비건식",
+                "img" : "https://www.discoverhongkong.com/content/dam/dhk/intl/explore/neighbourhoods/kwai-tsing/insiders-favourites/a_mi_tuo_fo_su_xin_yuan_4_3.jpg",
+                "des": "비건 음식에 대한 수요가 증가함에 따라, 이 사찰 음식점은 고기와 유제품이 없는 훌륭한 요리로 예복을 잘 차려입은 승려들도 자주 찾는 인기 비건 레스토랑이다. 크라우드 펀딩으로 오픈한 이 식당은 국수와 만두부터 볶음 요리에 이르기까지 채소를 기본으로 하는 다양한 요리를 제공한다. 다도체험을 위한 별도의 룸도 있다." 
+            },
+            { "id": 2, 
+                "name": "오! 마이 도그!",
+                "sub_title" :"숨어있는 아메리칸 햄버거 맛집",
+                "cuisine" :"햄버거",
+                "img" : "https://www.discoverhongkong.com/content/dam/dhk/intl/explore/neighbourhoods/kwai-tsing/insiders-favourites/oh_my_dog_4_3_4.jpg",
+                "des": "이 아늑한 식당은 거의 10년 동안 창의적인 핫도그와 버거를 만들고 있다. 기본적인 치즈와 베이컨부터 피클, 사우어크라우트와 함께 검은 후추 소시지를 넣은 피클 도그(Pickle Dog)와 같은 독특한 메뉴에 이르기까지 다양한 조합을 선보인다. 베지 도그(The Veggie Dog)는 양상추, 버섯, 토마토, 콘, 파인애플로 구성되어 있으며 시저 드레싱과 함께 제공된다. 하와이 도그(The Hawaii Dog)에는 허니 치킨 소시지와 체더치즈, 파인애플, 옥수수가 들어있다. 버거는 흥미로운 토핑과 함께 소고기 또는 닭고기 등과 함께 다양하게 제공된다." 
+            }
+        ],
+        "cafe": [
+        ],
+        "pub": [
+        ],
+        "sites": [
+            { "id": 1, 
+                "name": "플로렌시아 빌리지",
+                "sub_title" :"큰 규모의 다양한 명품 매장이 있는 아울렛",
+                "img": "https://www.discoverhongkong.com/content/dam/dhk/intl/explore/neighbourhoods/kwai-tsing/insiders-favourites/florentia_village_4_3_2.jpg",
+                "des" : "새로운 개발지구 구룡 상업 센터(Kowloon Commerce Centre)에서 벗어나, 오피스 건물인 KC100과 붙어 있는 플로렌시아 빌리지플로렌시아 빌리지는 최근 콰이청(Kwai Chung) 산업 지구에 세련된 상업 건물들이 유입되면서 밝고 대담한 럭셔리 패션을 선보이고 있다. 발렌시아가, 아르마니, 세르지오 로시와 베르사체 아웃렛 뿐 아니라 홍콩에서 가장 큰 프라다 아웃렛도 있다. 멀티 브랜드 I.T와 레인 크로포드 또한 여기에 있다. 세련된 쇼핑 환경에서 상시 최대 70%의 할인을 즐기길"
+            }
+        ]
+    },
+    "HK-WT": {
+        "k_name" : "웡타이신",
+        "hotels": [
+        ],
+        "restaurant": [
+        ],
+        "cafe": [
+        ],
+        "pub": [
+        ],
+        "sites": [
+            { "id": 1, 
+                "name": "웡타이신 사원",
+                "sub_title" :"홍콩의 문화와 종교적 다양성을 잘 보여주는 사원",
+                "img": "https://www.discoverhongkong.com/content/dam/dhk/intl/explore/culture/zen-in-the-city/zen-in-city-banner-16-92.jpg",
+                "des" : "웡타이신 사원은 홍콩에서 가장 유명한 도교 사원 중 하나로, 치유와 보호의 신인 웡타이신을 모시고 있습니다. 1921년에 건립된 이 사원은 전통적인 중국식 건축 양식과 아름다운 정원, 화려한 장식으로 유명합니다. 특히 점술과 기도를 통해 미래를 예측하려는 사람들에게 인기가 많으며, 연중 많은 신도와 관광객이 건강과 행운을 기원하기 위해 방문합니다. 홍콩의 문화와 종교적 다양성을 보여주는 중요한 명소로 자리 잡고 있습니다."
+            }
+        ]
+    },
+    "HK-TW": {
+        "k_name" : "추엔완",
+        "hotels": [
+            { "id": 1, "정보명": "정보1", "설명": "설명1" },
+            { "id": 2, "정보명": "정보2", "설명": "설명2" }
+        ],
+        "restaurant": [
+            { "id": 1, "정보명": "정보1", "설명": "설명1" },
+            { "id": 2, "정보명": "정보2", "설명": "설명2" }
+        ],
+        "cafe": [
+            { "id": 1, "정보명": "정보1", "설명": "설명1" },
+            { "id": 2, "정보명": "정보2", "설명": "설명2" }
+        ],
+        "pub": [
+            { "id": 1, "정보명": "정보1", "설명": "설명1" },
+            { "id": 2, "정보명": "정보2", "설명": "설명2" }
+        ],
+        "sites": [
+            { "id": 1, "정보명": "정보1", "설명": "설명1" },
+            { "id": 2, "정보명": "정보2", "설명": "설명2" }
+        ]
+    }
+}
