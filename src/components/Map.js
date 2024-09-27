@@ -1,9 +1,15 @@
 import React, { useState, useRef } from "react";
+import { useDispatch} from "react-redux"
+
+import { changeLoca } from '../store/locationSlice.js'
+
 import * as TH from '../style/style'; // 스타일 컴포넌트 임포트
 import maps from '../data/HKmap.js'; // 지도 데이터 임포트
 
 const Map = () => {
   const svgRef = useRef();
+  const dispatch = useDispatch();
+
   const [hoveredArea, setHoveredArea] = useState(''); // 호버된 지역 상태
   const [clickedArea, setClickedArea] = useState(''); // 클릭된 지역 상태
   const [tooltipContent, setTooltipContent] = useState(''); // 툴팁 내용 상태
@@ -24,7 +30,7 @@ const Map = () => {
   const handleClick = (el) => {
     setClickedArea(el.id); // 클릭된 지역 상태 업데이트
   };
-
+  
   const handleMapScale = (e) => {
     e.preventDefault(); // 기본 스크롤 막기
 
@@ -61,6 +67,7 @@ const Map = () => {
     setMapTranslate({ x: newTranslateX, y: newTranslateY }); // 이동 상태 업데이트
   }
 
+  dispatch(changeLoca(clickedArea))
 
   return (
     <TH.StyledMap>

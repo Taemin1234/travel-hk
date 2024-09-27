@@ -51,6 +51,14 @@ export const GnbButton = styled.button`
     }
 `
 
+// 공통 
+
+export const FlexCn = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+`
+
 //Map 지도 화면
 export const StyledMap = styled.div`
   svg path {

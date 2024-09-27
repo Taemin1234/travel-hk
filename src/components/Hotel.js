@@ -3,7 +3,7 @@ import TravelInfo from './TravelInfo'
 function Hotel() {
     return (
         <div>
-            <TravelInfo />
+            <TravelInfo category = 'hotels' />
         </div>
     );
 }

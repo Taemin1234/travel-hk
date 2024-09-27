@@ -1,12 +1,16 @@
 import React from 'react';
-import Map from "./Map"
+import * as TH from '../style/style';
 
-function TravelInfo() {
+import Map from "./Map"
+import InfoList from './InfoList';
+
+function TravelInfo({category}) {
 
     return (
-        <div>
+        <TH.FlexCn>
            <Map/>
-        </div>
+           <InfoList category={category}/>
+        </TH.FlexCn>
     )    
 }
 
