@@ -3,7 +3,7 @@ import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
 import Header from './components/Header'
-import TabContent from './components/TabContent'
+import TravelInfo from './components/TravelInfo'
 
 const GlobalStyle = createGlobalStyle`
    ${reset}
@@ -23,12 +23,14 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   let [tab, setTab] = useState(0)
+  let ctg = ['hotels', 'restaurant', 'cafe', 'pub', 'sites'][tab];
 
   return (
     <>
       <GlobalStyle/>
       <Header tab={tab} setTab={setTab}/>
-      <TabContent tab={tab}/>
+      {/* <TabContent tab={tab}/> */}
+      <TravelInfo category={ctg} />
     </>
 
   );
