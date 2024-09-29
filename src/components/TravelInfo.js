@@ -7,10 +7,10 @@ import InfoList from './InfoList';
 function TravelInfo({category}) {
 
     return (
-        <TH.FlexCn>
+        <TH.InfoWrap>
            <Map/>
            <InfoList category={category}/>
-        </TH.FlexCn>
+        </TH.InfoWrap>
     )    
 }
 

@@ -53,17 +53,33 @@ export const GnbButton = styled.button`
 
 // 공통 
 
-export const FlexCn = styled.div`
+const flexCn = css`
     display: flex;
     justify-content: center;
-    align-items: flex-start;
 `
-
+const flexS = css`
+    display: flex;
+    justify-content: flex-start;
+`
+export const InfoWrap = styled.div`
+    ${flexCn}
+    max-width: 1200px;
+    /* height: auto; */
+    margin: 30px auto;
+`
 //Map 지도 화면
 export const StyledMap = styled.div`
+    background-color: #1e1e1e;
+    max-width: 800px;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-sizing: border-box;
+
   svg path {
     position: relative;
-    /* fill: #eee; */
+    fill: #eee;
+    cursor: pointer;
     transition: fill 0.3s;
     
     &:hover:not(.selected) {
@@ -75,3 +91,62 @@ export const StyledMap = styled.div`
   }
 
 `;
+
+// 정보 화면
+export const InfoListWrap = styled.div`
+    width: 400px;
+    /* height: 100%; */
+    padding: 25px;
+    background-color: #444;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-sizing: border-box;
+
+    .title {
+        font-size: 24px;
+        font-weight: 700;
+    }
+`
+
+export const InfoDataList = styled.ul`
+    margin-top: 10px;
+
+    li {
+        padding: 12px 0;
+        border-bottom: solid 1px #555;
+
+        .name {
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        img {
+            width: 150px;
+        }
+    }
+`
+
+export const ContBox = styled.div`
+    /* display: none; */
+    margin-top: 12px;
+    
+    p {
+        margin-top: 10px;
+        font-weight: 18px;
+        line-height: 1.1;
+    }
+`
+
+export const ImgCont = styled.div`
+    ${flexS}
+    margin-top: 10px;
+    gap: 10px;
+
+    div {
+        p {
+            &:nth-of-type(1) {
+                margin-top: 0;
+            }
+        }
+    }
+`
