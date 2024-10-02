@@ -4,35 +4,40 @@ import * as TH from '../style/style';
 
 import { useSelector } from "react-redux"
 
-function InfoList({category}) {
+function InfoList({category, toggleList, setToggleList}) {
     let loca = useSelector((state) => state.location)
 
     const [datas, setDatas] = useState(null);
     const [dataKo, setDataKo] = useState(null);
+    
     const district = loca
 
     useEffect(() => {
-        if (data[district] && data[district][category]) {
-            setDatas(data[district][category]);
-            setDataKo(data[district].k_name);
-        } else {
-            setDatas(null);
-        }
-      }, [district, category]);
+      if (data[district] && data[district][category]) {
+          setDatas(data[district][category]);
+          setDataKo(data[district].k_name);
+      } else {
+          setDatas(null);
+      }
+    }, [district, category]);
     
-      if (!datas) return <TH.InfoListWrap>지역을 선택해주세요</TH.InfoListWrap>;
+    if (!datas) return <TH.InfoListWrap>지역을 선택해주세요</TH.InfoListWrap>;
 
-      console.log(datas)
+    const handleOpen = (idx) => {
+        setToggleList((prevIdx) => (prevIdx === idx ? prevIdx : idx))
+    }
+
+    console.log(datas)
 
     return (
         <TH.InfoListWrap>
             <p className='title'>{dataKo}</p>
            <TH.InfoDataList>
-                {datas.map(el => {
+                {datas.map((el, i) => {
                     return (
-                        <li key={el.id}>
-                            <p className='name'>{el.id}. {el.name}</p>
-                            <TH.ContBox>
+                        <li onClick={() => handleOpen(i)} key={i}>
+                            <TH.NameTag listOpen={toggleList === i}>{i+1}. {el.name}</TH.NameTag>
+                            <TH.ContBox listOpen={toggleList === i}>
                                 <TH.ImgCont>
                                     <img src={el.img} alt={el.name} />
                                     <div>

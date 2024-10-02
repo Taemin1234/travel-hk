@@ -107,19 +107,19 @@ export const InfoListWrap = styled.div`
         font-weight: 700;
     }
 `
+export const NameTag = styled.p`
+    padding: 12px 10px;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: ${({ listOpen }) => (listOpen ? "#FF4C4C" : "none")};
+    cursor: pointer;
+`
 
 export const InfoDataList = styled.ul`
     margin-top: 10px;
 
     li {
-        padding: 12px 0;
         border-bottom: solid 1px #555;
-
-        .name {
-            font-size: 18px;
-            font-weight: 700;
-        }
-
         img {
             width: 150px;
         }
@@ -127,9 +127,9 @@ export const InfoDataList = styled.ul`
 `
 
 export const ContBox = styled.div`
-    /* display: none; */
-    margin-top: 12px;
-    
+    display: ${({ listOpen }) => (listOpen ? "block" : "none")};
+    padding: 10px 10px 12px;
+
     p {
         margin-top: 10px;
         font-weight: 18px;
@@ -139,7 +139,6 @@ export const ContBox = styled.div`
 
 export const ImgCont = styled.div`
     ${flexS}
-    margin-top: 10px;
     gap: 10px;
 
     div {

@@ -6,7 +6,7 @@ import { changeLoca } from '../store/locationSlice.js'
 import * as TH from '../style/style'; // 스타일 컴포넌트 임포트
 import maps from '../data/HKmap.js'; // 지도 데이터 임포트
 
-const Map = () => {
+const Map = ({toggleList, setToggleList}) => {
   const svgRef = useRef();
   const dispatch = useDispatch();
 
@@ -29,6 +29,7 @@ const Map = () => {
 
   const handleClick = (el) => {
     setClickedArea(el.id); // 클릭된 지역 상태 업데이트
+    setToggleList(0)
   };
   
   const handleMapScale = (e) => {
