@@ -27,7 +27,7 @@ function InfoList({category, toggleList, setToggleList}) {
         setToggleList((prevIdx) => (prevIdx === idx ? prevIdx : idx))
     }
 
-    console.log(datas)
+    // console.log(datas)
 
     return (
         <TH.InfoListWrap>

@@ -6,7 +6,7 @@ import { changeLoca } from '../store/locationSlice.js'
 import * as TH from '../style/style'; // 스타일 컴포넌트 임포트
 import maps from '../data/HKmap.js'; // 지도 데이터 임포트
 
-const Map = ({toggleList, setToggleList}) => {
+const Map = ({ setToggleList}) => {
   const svgRef = useRef();
   const dispatch = useDispatch();
 
@@ -69,6 +69,8 @@ const Map = ({toggleList, setToggleList}) => {
   }
 
   dispatch(changeLoca(clickedArea))
+
+  console.log(clickedArea)
 
   return (
     <TH.StyledMap>

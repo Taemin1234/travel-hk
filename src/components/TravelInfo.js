@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import * as TH from '../style/style';
 
 import Map from "./Map"
 import InfoList from './InfoList';
 
-function TravelInfo({category}) {
-    const [toggleList, setToggleList] = useState(0)
+function TravelInfo({category, toggleList, setToggleList}) {
+    
 
     return (
         <TH.InfoWrap>

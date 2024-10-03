@@ -23,14 +23,15 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   let [tab, setTab] = useState(0)
+  const [toggleList, setToggleList] = useState(0)
   let ctg = ['hotels', 'restaurant', 'cafe', 'pub', 'sites'][tab];
 
   return (
     <>
       <GlobalStyle/>
-      <Header tab={tab} setTab={setTab}/>
+      <Header tab={tab} setTab={setTab} toggleList={toggleList} setToggleList={setToggleList}/>
       {/* <TabContent tab={tab}/> */}
-      <TravelInfo category={ctg} />
+      <TravelInfo category={ctg} toggleList={toggleList} setToggleList={setToggleList}/>
     </>
 
   );
