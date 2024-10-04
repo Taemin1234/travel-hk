@@ -87,7 +87,7 @@ const Map = ({ setToggleList}) => {
               key={idx}
               id={el.id}
               title={el.ko}
-              fill={clickedArea === el.id ? '#EE1C25' : '#eee'}
+              className={clickedArea === el.id ? 'clicked' : ''}
               d={el.d}
               onMouseEnter={() => handleMouseEnter(el)} // 호버 시 처리
               onMouseLeave={handleMouseLeave} // 호버 해제 시 처리

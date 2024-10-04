@@ -90,6 +90,10 @@ export const StyledMap = styled.div`
     }
   }
 
+  path.clicked {
+    fill: #EE1C25;
+  }
+
 `;
 
 // 정보 화면
