@@ -1,4 +1,6 @@
 import styled, { css } from "styled-components";
+import heart_empty from '../assets/img/icon/heart_empty.png';
+import heart_full from '../assets/img/icon/heart_full.png';
 
 //header
 export const MHeader = styled.header`
@@ -111,8 +113,9 @@ export const InfoListWrap = styled.div`
         font-weight: 700;
     }
 `
-export const NameTag = styled.p`
-    padding: 12px 10px;
+export const NameTag = styled.div`
+    position: relative;
+    padding: 12px 30px 12px 10px;
     font-size: 18px;
     font-weight: 700;
     background-color: ${({ listOpen }) => (listOpen ? "#FF4C4C" : "none")};
@@ -152,4 +155,60 @@ export const ImgCont = styled.div`
             }
         }
     }
+`
+export const LikeShortcutWrap = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 40px;
+    height: 100%;
+    z-index: 10;
+    right: 0;
+    top: 0;
+    
+    background-color: #fff;
+`
+
+export const LikeBtn = styled.label`
+    overflow: hidden;
+    font-size: 0;
+
+    input[type='checkbox'] {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        &:checked + .icon {
+            &:before {
+                background-image: url(${heart_full});
+            }
+        }
+    }
+
+    .icon {
+        position: relative;
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+
+        &:before {
+            position: absolute;
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-image: url(${heart_empty});
+            background-size: contain;
+        }
+    }
+`
+
+export const LikeCount = styled.p`
+    font-size: 16px;
+    color: #000;
 `

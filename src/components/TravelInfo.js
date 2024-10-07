@@ -5,8 +5,6 @@ import Map from "./Map"
 import InfoList from './InfoList';
 
 function TravelInfo({category, toggleList, setToggleList}) {
-    
-
     return (
         <TH.InfoWrap>
            <Map toggleList={toggleList} setToggleList={setToggleList} />

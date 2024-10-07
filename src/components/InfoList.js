@@ -3,6 +3,7 @@ import data from '../data/data.json'
 import * as TH from '../style/style';
 
 import { useSelector } from "react-redux"
+import LikeShortcut from './LikeShortcut';
 
 function InfoList({category, toggleList, setToggleList}) {
     let loca = useSelector((state) => state.location)
@@ -36,7 +37,10 @@ function InfoList({category, toggleList, setToggleList}) {
                 {datas.map((el, i) => {
                     return (
                         <li onClick={() => handleOpen(i)} key={i}>
-                            <TH.NameTag listOpen={toggleList === i}>{i+1}. {el.name}</TH.NameTag>
+                            <TH.NameTag listOpen={toggleList === i}>
+                                {i+1}. {el.name}
+                                {toggleList === i ? <LikeShortcut likeLeng={el.name} /> : null}
+                            </TH.NameTag>
                             <TH.ContBox listOpen={toggleList === i}>
                                 <TH.ImgCont>
                                     <img src={el.img} alt={el.name} />
