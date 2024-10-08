@@ -39,7 +39,8 @@ function InfoList({category, toggleList, setToggleList}) {
                         <li onClick={() => handleOpen(i)} key={i}>
                             <TH.NameTag listOpen={toggleList === i}>
                                 {i+1}. {el.name}
-                                {toggleList === i ? <LikeShortcut likeLeng={el.name} /> : null}
+                                {/* {toggleList === i ? <LikeShortcut likeLeng={el.name} /> : null} */}
+                                <LikeShortcut likeLeng={el.name || ''} />
                             </TH.NameTag>
                             <TH.ContBox listOpen={toggleList === i}>
                                 <TH.ImgCont>

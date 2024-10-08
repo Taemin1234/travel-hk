@@ -168,7 +168,7 @@ export const LikeShortcutWrap = styled.div`
     right: 0;
     top: 0;
     
-    background-color: #fff;
+    background-color: #333;
 `
 
 export const LikeBtn = styled.label`
@@ -187,6 +187,7 @@ export const LikeBtn = styled.label`
         &:checked + .icon {
             &:before {
                 background-image: url(${heart_full});
+                filter: invert(0);
             }
         }
     }
@@ -204,11 +205,12 @@ export const LikeBtn = styled.label`
             height: 100%;
             background-image: url(${heart_empty});
             background-size: contain;
+            filter: invert(1);
         }
     }
 `
 
 export const LikeCount = styled.p`
     font-size: 16px;
-    color: #000;
+    color: #fff;
 `
