@@ -71,6 +71,9 @@ export const InfoWrap = styled.div`
 `
 //Map 지도 화면
 export const StyledMap = styled.div`
+    position: relative;
+    display: flex;
+    align-items: center;
     background-color: #1e1e1e;
     max-width: 800px;
     padding: 10px;
@@ -115,10 +118,10 @@ export const InfoListWrap = styled.div`
 `
 export const NameTag = styled.div`
     position: relative;
-    padding: 12px 30px 12px 10px;
+    padding: 12px 40px 12px 10px;
     font-size: 18px;
     font-weight: 700;
-    background-color: ${({ listOpen }) => (listOpen ? "#FF4C4C" : "none")};
+    background-color: ${({ $listopen }) => ($listopen ? "#FF4C4C" : "none")};
     cursor: pointer;
 `
 
@@ -134,7 +137,7 @@ export const InfoDataList = styled.ul`
 `
 
 export const ContBox = styled.div`
-    display: ${({ listOpen }) => (listOpen ? "block" : "none")};
+    display: ${({ $listopen }) => ($listopen ? "block" : "none")};
     padding: 10px 10px 12px;
 
     p {

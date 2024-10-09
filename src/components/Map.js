@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useDispatch} from "react-redux"
 
 import { changeLoca } from '../store/locationSlice.js'
@@ -33,7 +33,7 @@ const Map = ({ setToggleList}) => {
   };
   
   const handleMapScale = (e) => {
-    e.preventDefault(); // 기본 스크롤 막기
+    // e.preventDefault(); // 기본 스크롤 막기
 
     const svgMaP = svgRef.current
     const rect = svgMaP.getBoundingClientRect(); // SVG의 위치 및 크기 정보 가져오기
@@ -70,13 +70,11 @@ const Map = ({ setToggleList}) => {
 
   dispatch(changeLoca(clickedArea))
 
-  console.log(clickedArea)
-
   return (
     <TH.StyledMap>
       {/* 툴팁 표시 */}
       {hoveredArea && (
-        <div style={{ position: 'absolute', marginTop: '10px', color: 'red' }}>
+        <div style={{ position: 'absolute', top:0, left:0, marginTop: '10px', color: 'red' }}>
           {tooltipContent}
         </div>
       )}

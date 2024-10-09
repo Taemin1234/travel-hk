@@ -37,12 +37,12 @@ function InfoList({category, toggleList, setToggleList}) {
                 {datas.map((el, i) => {
                     return (
                         <li onClick={() => handleOpen(i)} key={i}>
-                            <TH.NameTag listOpen={toggleList === i}>
+                            <TH.NameTag $listopen={toggleList === i}>
                                 {i+1}. {el.name}
-                                {/* {toggleList === i ? <LikeShortcut likeLeng={el.name} /> : null} */}
+                                {/* {toggleList === i ? <LikeShortcut likeLeng={el.name || ''} /> : null} */}
                                 <LikeShortcut likeLeng={el.name || ''} />
                             </TH.NameTag>
-                            <TH.ContBox listOpen={toggleList === i}>
+                            <TH.ContBox $listopen={toggleList === i}>
                                 <TH.ImgCont>
                                     <img src={el.img} alt={el.name} />
                                     <div>
