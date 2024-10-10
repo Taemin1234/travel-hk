@@ -33,7 +33,7 @@ const Map = ({ setToggleList}) => {
   };
   
   const handleMapScale = (e) => {
-    // e.preventDefault(); // 기본 스크롤 막기
+    e.preventDefault(); // 기본 스크롤 막기
 
     const svgMaP = svgRef.current
     const rect = svgMaP.getBoundingClientRect(); // SVG의 위치 및 크기 정보 가져오기
@@ -68,6 +68,26 @@ const Map = ({ setToggleList}) => {
     setMapTranslate({ x: newTranslateX, y: newTranslateY }); // 이동 상태 업데이트
   }
 
+  //브라우저에서 휠 이벤트는 기본적으로 passive 모드로 처리되기 때문에 non-passive 모드로 설정해주어야한다.
+  // mapScale, mapTranslate가 변할 때 마다 실행
+  useEffect(() => {
+    // svgRef로 svg에 접근
+    const svgMap = svgRef.current;
+    // 휠 이벤트가 발생했을 때 호출
+    const handleWheel = (e) => {
+      //확대와 preventDefault 호출
+      handleMapScale(e);
+    };
+
+    // 이벤트 리스너 추가
+    // 세번째 인자로 passive를 false로 설정
+    svgMap.addEventListener('wheel', handleWheel, { passive: false });
+    // useEffect의 cleanup 함수 - 이전에 추가한 이벤트 리스너를 제거
+    return () => {
+      svgMap.removeEventListener('wheel', handleWheel);
+    };
+  }, [mapScale, mapTranslate]);
+
   dispatch(changeLoca(clickedArea))
 
   return (
@@ -78,7 +98,7 @@ const Map = ({ setToggleList}) => {
           {tooltipContent}
         </div>
       )}
-      <svg ref={svgRef} onWheel={handleMapScale} width="722" height="514.8">
+      <svg ref={svgRef} width="722" height="514.8">
         <g transform={`translate(${mapTranslate.x}, ${mapTranslate.y}) scale(${mapScale})`}>
           {maps.map((el, idx) => (
             <path
