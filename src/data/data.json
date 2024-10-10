@@ -68,7 +68,7 @@
                 "name": "Ming Kee Noodle Restaurant (明記粉麵茶餐廳)", 
                 "sub_title" :"현지인들이 사랑하는 전통 홍콩식 면 요리 전문점",
                 "cuisine" :"차찬탱",
-                "img" : "",
+                "img" : "https://lh5.googleusercontent.com/p/AF1QipPR60YshSKtD9KlYJrr9H2nOWL91qKri4bIxaq7=w425-h240-k-no",
                 "des": "홍콩 현지인들 사이에서 인기 있는 오래된 차찬탱(홍콩식 식당)입니다. 이곳은 특히 다양한 종류의 면 요리로 유명하며, 수제 완탕(새우와 돼지고기 만두)과 쫄깃한 면발이 일품인 완탕면이 대표 메뉴입니다. 또한 고기와 해산물로 우려낸 깊고 진한 국물은 현지의 맛을 그대로 전해줍니다. 가성비가 뛰어나고 푸짐한 양을 제공하여 홍콩의 로컬 푸드를 경험하고자 하는 여행객들에게 안성맞춤인 곳입니다. 식당 내부는 소박하지만 홍콩의 일상적인 분위기를 느낄 수 있어 더욱 매력적입니다." 
             }
         ],
@@ -76,7 +76,7 @@
             {  "id": 1, 
                 "name": "Grove Café", 
                 "sub_title" :"현지 분위기를 느낄 수 있는 편안하고 아늑한 카페",
-                "img" : "",
+                "img" : "https://lh5.googleusercontent.com/p/AF1QipN_MYQVnvxseIb3tBIiRCr_JpxqoDEtfkWMfJoj=w408-h306-k-no",
                 "des": "Grove Café는 Temple Mall South에 위치한 아늑한 분위기의 카페로, 쇼핑 중간에 휴식하며 커피를 즐기기 좋은 곳입니다. 내부는 깔끔하고 편안한 인테리어로 꾸며져 있어 누구나 부담 없이 방문할 수 있습니다. 메뉴에는 다양한 종류의 커피와 차, 간단한 디저트, 샌드위치 등이 준비되어 있습니다. 이곳에서는 맛있는 커피 한 잔과 함께 여유로운 시간을 보내거나 친구들과 담소를 나누기에도 좋습니다. 주변의 Chuk Un 지역을 돌아다니다 들르기 좋은 카페로, 현지인의 일상적인 모습을 느껴보고 싶다면 추천할 만한 곳입니다." 
             }
         ],
@@ -121,7 +121,7 @@
                 "name": "Pickabowl (Citywalk)", 
                 "sub_title" :"신선한 재료로 나만의 보울을 만들어 즐길 수 있는 건강식 전문점.",
                 "cuisine" :"아시안 퓨전과 건강식",
-                "img" : "",
+                "img" : "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/cf/c0/54/photo8jpg.jpg?w=1200&h=-1&s=1",
                 "des": "Pickabowl은 자신만의 맞춤형 보울을 만들어 먹을 수 있는 식당으로, 신선하고 다양한 재료를 사용해 건강한 한 끼를 즐길 수 있습니다. 기본 베이스(쌀, 면, 샐러드 등)를 선택하고, 그 위에 각종 고기, 해산물, 채소, 소스 등을 추가해 나만의 보울을 완성할 수 있습니다. 특히 채식주의자나 건강을 중시하는 분들에게 인기 있는 곳입니다. Citywalk 쇼핑몰 내부에 위치해 있어 쇼핑을 즐기다 간단하고 맛있게 식사하기에 좋습니다." 
             },
             {   "id": 2, 
@@ -155,6 +155,18 @@
             }
         ],
         "pub": [
+            {  "id": 1, 
+                "name": "Vici Restaurant & Bar", 
+                "sub_title" :"트렌디한 분위기 속에서 다양한 칵테일과 요리를 즐길 수 있는 스타일리시한 와인 바",
+                "img" : "https://lh5.googleusercontent.com/p/AF1QipNnEpAfL6TwGgoijfXPKxmRAG3oLV-Cc_Yufjk=w408-h510-k-no",
+                "des": "Vici Restaurant & Bar는 홍콩 Tsuen Wan 지역에 위치한 와인 바로, 일본식과 서양식 요리를 결합한 다양한 메뉴와 함께 80종 이상의 와인을 제공합니다. 이곳은 주로 스케어즈, 피자, 그릴드 피쉬 등 다양한 바 음식을 선보이며, 라이브 음악과 함께 편안한 시간을 보낼 수 있는 라이브 하우스 분위기입니다." 
+            },
+            {  "id": 2, 
+                "name": "CO CO DUCK BAR", 
+                "sub_title" :"트렌디한 분위기 속에서 다양한 칵테일과 요리를 즐길 수 있는 스타일리시한 와인 바",
+                "img" : "https://lh5.googleusercontent.com/p/AF1QipNAL2Yk0kH1_AM18BW9CPufnPfM-M7afWFxuWoZ=w408-h306-k-no",
+                "des": "CO CO DUCK BAR는 홍콩 췬완에 위치한 인기 있는 미국식 레스토랑 겸 바입니다. 이곳에서는 다양한 칵테일과 함께 피자, 파스타 등 서양식 요리를 즐길 수 있습니다. 특히 비프 립아이 스테이크, 그릴드 연어 필레, 탐얌쿵 수프 등이 대표 메뉴로 제공되며, 안락한 분위기와 함께 게임 시설인 당구와 다트도 즐길 수 있어 친구들과의 만남에 적합한 장소입니다." 
+            }
         ],
         "sites": [
             { "id": 1, 
@@ -302,8 +314,20 @@
             {  "id": 1, 
                 "name": "Amuse", 
                 "sub_title" :"세련된 분위기에서 와인과 간단한 안주를 즐길 수 있는 힙한 와인 바.",
-                "img" : "",
+                "img" : "https://lh5.googleusercontent.com/p/AF1QipMj-QQ5d5zdNABOAm180dh507NJoI80T5eFzSwI=w408-h306-k-no",
                 "des": "삼수이포의 숨은 와인 바로, 모던하고 아늑한 인테리어가 돋보입니다. 다양한 종류의 와인과 맥주를 합리적인 가격에 제공하며, 와인과 곁들일 수 있는 간단한 안주와 치즈 플래터도 준비되어 있습니다. 조용하고 세련된 분위기에서 친구나 연인과 함께 와인을 즐기며 이야기를 나누기에 제격인 장소입니다. 삼수이포의 현지 분위기와 현대적인 감각이 어우러진 독특한 공간을 찾는다면 Amuse를 방문해보세요." 
+            },
+            {  "id": 2, 
+                "name": "F-22 Bar", 
+                "sub_title" :"캐주얼한 분위기 속에서 다양한 음료를 즐길 수 있는 바.",
+                "img" : "https://lh5.googleusercontent.com/p/AF1QipPLTwBg5cbEi3VjUKaiSwLw7KtKmw1Ks81AdYaI=w426-h240-k-no",
+                "des": "F-22 Bar는 Tong Mi 지역에 위치한 아늑한 바입니다. 이곳은 주로 현지 주민과 관광객들에게 인기 있는 장소로, 다양한 칵테일과 음료를 제공하며 편안한 분위기를 자랑합니다. 간단한 안주와 함께 술을 즐기기 좋으며, 가벼운 대화를 나누기에도 적합한 환경을 제공합니다. 이 바는 저녁 시간대에 더욱 활기차며, 방문객들이 휴식을 취하며 음료를 마시기 좋은 캐주얼한 공간으로 알려져 있습니다." 
+            },
+            {  "id": 3, 
+                "name": "BOUND Kowloon", 
+                "sub_title" :"다양한 크래프트 맥주와 커피, 인도네시아 요리를 즐길 수 있는 예술적인 분위기의 바",
+                "img" : "https://lh5.googleusercontent.com/p/AF1QipMSdlqOSI46gNF7Ih1p5x8KMg3Gfs8gqm5pLCU6=w408-h522-k-no",
+                "des": "BOUND Kowloon은 예술적 감각이 넘치는 다목적 바로, 다양한 크래프트 맥주와 커피, 그리고 인도네시아 요리를 선보입니다. 이 바는 로컬 아티스트들과 함께하는 이벤트, 그리고 특별한 칵테일 메뉴로 유명합니다. 아일랜드 커피 같은 시그니처 음료는 특히 인기가 높으며, 바의 실내외 공간은 힙스터 감성을 더해주어 캐주얼하면서도 세련된 분위기를 자아냅니다. 이곳은 음악 공연이나 특별 이벤트도 자주 열리며, 편안한 분위기에서 다양한 문화를 경험할 수 있는 장소로 사랑받고 있습니다​." 
             }
         ],
         "sites": [
@@ -1773,8 +1797,20 @@
     "HK-SK": {
         "k_name" : "사이쿵",
         "hotels": [
-            { "id": 1, "정보명": "정보1", "설명": "설명1" },
-            { "id": 2, "정보명": "정보2", "설명": "설명2" }
+            {   "id": 1, 
+                "name": "WM Hotel Hong Kong, Vignette Collection",
+                "star": "5성급",
+                "price": "20만원 대 ~",
+                "img" : "https://www.discoverhongkong.com/content/dam/dhk/accommodations/images/en/840/84008/30973_wm-hotel-by-aedas-by-kris-provoost_02.jpg",
+                "des": "WM Hotel Hong Kong, Vignette Collection은 홍콩 사이쿵에 위치한 5성급 호텔입니다. 사이쿵 해안가에 자리해 평화로운 자연과 탁 트인 바다 전망을 자랑하며, 대부분의 객실이 발코니를 갖추고 있습니다. 객실 인테리어는 자연의 색감을 활용해 편안함을 주며, 일부 객실에는 전용 정원과 옥상 테라스도 있습니다. 루프탑 인피니티 풀, 피트니스 센터, 사우나, 스팀룸 등 다양한 고급 편의 시설이 구비되어 있으며, 국제 요리를 제공하는 레스토랑이 세 곳 있습니다. 이 호텔은 사이쿵 부두와 가까워 관광과 자연 탐방에도 용이합니다."
+            },
+            {   "id": 2, 
+                "name": "The Pier Hotel",
+                "star": "4성급",
+                "price": "10만원 대 ~",
+                "img" : "https://www.discoverhongkong.com/content/dam/dhk/accommodations/images/en/751/75178/20316_premium-ocean-front-terrace.jpg",
+                "des": "The Pier Hotel은 사이쿵의 팍 샤 완 해변가에 위치한 4성급 호텔로, 도시의 번잡함을 벗어나 바다와 자연을 만끽할 수 있는 곳입니다. 객실은 모던한 인테리어와 함께 넓은 창을 통해 탁 트인 바다 전망을 제공하며, 크기와 스타일에 따라 다양한 선택지가 있습니다. 특히 오션 프론트 테라스 객실은 바다를 바로 앞에서 감상할 수 있는 최고급 숙소로 유명합니다."
+            }
         ],
         "restaurant": [
             { "id": 1, 
@@ -1794,8 +1830,12 @@
             }
         ],
         "pub": [
-            { "id": 1, "정보명": "정보1", "설명": "설명1" },
-            { "id": 2, "정보명": "정보2", "설명": "설명2" }
+            { "id": 1, 
+                "name": "Duke of York",
+                "sub_title" :"1988년에 개장한 사이쿵에서 가장 오래된 영국식 펍",
+                "img": "https://lh3.googleusercontent.com/p/AF1QipPRiuEMTMFOxO3BnNhpOVSx0BegxUPzmbdz-r62=s680-w680-h510",
+                "des" : "Duke of York는 사이쿵 지역의 오래된 영국식 펍으로, 주로 현지 외국인들이 많이 찾는 인기 있는 장소입니다. 70년대 영국 펑크 록이 흐르는 이곳은 편안한 다이브 바 분위기와 함께 당구대가 있어 친구들과 여유롭게 술을 마시며 즐길 수 있습니다. 다양한 라이브 음악과 퀴즈 나이트, 해피 아워 등 특별한 이벤트들이 자주 열리며, 특히 구운 치킨과 시푸드 파스타 같은 고급 바 음식이 인기 메뉴입니다."
+            }
         ],
         "sites": [
             { "id": 1, 
@@ -1821,8 +1861,27 @@
     "HK-SO": {
         "k_name" : "남구",
         "hotels": [
-            { "id": 1, "정보명": "정보1", "설명": "설명1" },
-            { "id": 2, "정보명": "정보2", "설명": "설명2" }
+            {   "id": 1, 
+                "name": "Stanley Oriental Hotel",
+                "star": "5성급",
+                "price": "40만원 대 ~",
+                "img" : "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/47/e7/ee/stanley-oriental-hotel.jpg?w=1200&h=-1&s=1",
+                "des": "Stanley Oriental Hotel은 홍콩 스탠리 지역의 해안가에 위치한 고급 호텔로, 전 객실에서 바다를 내려다볼 수 있는 탁 트인 전망과 함께 프라이빗 발코니를 제공합니다. 주로 단기 투숙객을 위한 레지던스 스타일 숙소로, 시원한 바닷바람과 함께 한적한 휴식을 취할 수 있는 최적의 장소입니다. 호텔은 스탠리 플라자와 스탠리 마켓까지 도보로 이동할 수 있을 만큼 가까워 관광과 쇼핑에 편리하며, 센트럴까지도 25분 거리로 접근성이 좋습니다."
+            },
+            {   "id": 2, 
+                "name": "South Nest",
+                "star": "4성급",
+                "price": "8만원 대 ~",
+                "img" : "https://lh3.googleusercontent.com/gps-proxy/ALd4DhGxgQw0nuPhee4N3C75ubst_jKBz0NlTOTW6d71FAOLebm0aNjADb8qPMXaxCXQJyer8N7pslHU-rZI-NhOzblKLb0lnt0In9oKLpPDdDvXlYKT_OI_B7nRVDgH0cA160Ywdhde-8I7nhaZtJFCzU2G2PWh7gBpDmGKNR3KGgmzRuNAH5X0CO18iw=w408-h544-k-no",
+                "des": "South Nest는 홍콩 남구 Tin Wan에 위치한 31층 건물로, 475개의 스타일리시한 객실을 갖춘 코리빙 및 호텔입니다. 이곳은 개인 공간과 함께 공용 주방, 피트니스 센터, 세탁실 등 다양한 커뮤니티 시설을 제공합니다. 특히 아베르딘 항구와 가까워 현지의 문화와 자연을 동시에 경험할 수 있으며, 홍콩 오션파크 등 주요 관광지까지도 쉽게 접근할 수 있습니다."
+            },
+            {   "id": 3, 
+                "name": "The Arca",
+                "star": "4성급",
+                "price": "10만원 대 ~",
+                "img" : "https://www.discoverhongkong.com/content/dam/dhk/accommodations/images/en/836/83608/26394_deft_arca-public-area_-dsc06924.jpg",
+                "des": "The Arca는 홍콩 남부 Wong Chuk Hang 지역에 위치한 세련된 부티크 호텔로, 187개의 객실을 갖추고 있습니다. 이 호텔은 도시와 자연을 동시에 느낄 수 있는 멋진 항구 전망을 자랑하며, 루프탑 인피니티 풀, 피트니스 센터, 다양한 행사 공간이 마련되어 있습니다. 또한 반려동물 동반이 가능한 객실을 제공하여 애견과 함께 휴가를 보낼 수 있는 도그케이션 패키지를 제공합니다. 호텔 내 Arca Society 레스토랑에서는 서양 및 아시아 요리를 즐길 수 있으며, 조식이 포함된 패키지를 이용할 수 있습니다."
+            }
         ],
         "restaurant": [
             { "id": 1, 
@@ -1843,19 +1902,17 @@
                 "name": "섹오 타이 레스토랑 (Shek O Thai Restaurant)", 
                 "sub_title" :"해변 근처에서 정통 태국 요리를 맛볼 수 있는 캐주얼한 식당",
                 "cuisine" :"태국요리",
-                "img" : "",
+                "img" : "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/bf/a4/d6/shek-o-thai-food.jpg?w=1200&h=-1&s=1",
                 "des": "섹오 타이 레스토랑은 섹오 해변 근처에 위치한 편안한 분위기의 식당으로, 현지인과 관광객 모두에게 인기 있는 태국 및 중국 요리를 제공합니다. 대표 메뉴로는 톰얌꿍, 그린 커리, 그리고 파인애플 볶음밥 등이 있으며, 저렴한 가격대에 맛있는 태국 음식을 즐길 수 있습니다. 야외 좌석이 마련되어 있어 해변의 바람을 맞으며 여유롭게 식사하기 좋습니다." 
             }
         ],
         "cafe": [
-            { "id": 1, "정보명": "정보1", "설명": "설명1" },
-            { "id": 2, "정보명": "정보2", "설명": "설명2" }
         ],
         "pub": [
             { "id": 1, 
                 "name": "벤스 바 (Ben's Back Beach Bar)",
                 "sub_title" :"섹오의 숨겨진 해변가에서 느긋하게 즐길 수 있는 캐주얼 바",
-                "img": "",
+                "img": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/bf/a4/d9/ben-s-back-beach-bar.jpg?w=1200&h=-1&s=1",
                 "des" : "벤스 바는 섹오의 조용한 해변에 위치한 소박하고 편안한 분위기의 바입니다. 바다 바로 앞에 자리해 있어 시원한 바람과 함께 음료를 즐길 수 있으며, 간단한 중국식 면 요리와 함께 맥주, 소다 등을 저렴하게 제공합니다. 해변의 차분한 풍경을 배경으로 여유로운 시간을 보내기에 제격입니다. 지역 주민들과 방문객들 사이에서 인기가 많으며, 강아지와 아이들도 환영받는 친근한 분위기가 특징입니다."
             }
         ],
