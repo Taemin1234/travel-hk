@@ -13,9 +13,15 @@ const Map = ({ setToggleList}) => {
   const [hoveredArea, setHoveredArea] = useState(''); // 호버된 지역 상태
   const [clickedArea, setClickedArea] = useState(''); // 클릭된 지역 상태
   const [tooltipContent, setTooltipContent] = useState(''); // 툴팁 내용 상태
+  
   const [mapScale, setMapScale] = useState(1.1); //스크롤 시 지도 크기 상태
   const [mapTranslate, setMapTranslate] = useState({ x: 0, y: 0 }); // 이동 상태 관리
+  
+  const [isDrag, setIsDrag] = useState(false); // 마우스를 클릭 여부
+  const [startPoint, setStartPoint] = useState({x: 0, y: 0}); // 드래그 하기 위해 찍은 위치 값
+  const [movePoint, setMovePoint] = useState({x:0, y:0}); // 드래그된 거리
 
+  const dragThreshold = 5;
 
   const handleMouseEnter = (el) => {
     setHoveredArea(el.id); // 호버된 지역 상태 업데이트
@@ -68,7 +74,66 @@ const Map = ({ setToggleList}) => {
     setMapTranslate({ x: newTranslateX, y: newTranslateY }); // 이동 상태 업데이트
   }
 
-  //브라우저에서 휠 이벤트는 기본적으로 passive 모드로 처리되기 때문에 non-passive 모드로 설정해주어야한다.
+  const handleMapClick = (e) => {
+    const svgMaP = svgRef.current
+    const rect = svgMaP.getBoundingClientRect();
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    //최초 찍은 마우스 좌표
+    setStartPoint({x: mouseX, y: mouseY})
+    setIsDrag(true)
+  }
+  
+  const handleDragMove = (e) => {
+    const svgMaP = svgRef.current
+    const rect = svgMaP.getBoundingClientRect();
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    // 이동한 좌표 - 최초찍은 마우스 좌표(변동)
+    const moveMouseX = mouseX - startPoint.x
+    const moveMouseY = mouseY - startPoint.y
+    
+    // 클릭이 유지되고 있을 때
+    // 현지 위치에서 이동한 거리만큼 이동
+    if(isDrag){
+      setMapTranslate((prevTrans) => ({ 
+        x: prevTrans.x + moveMouseX, 
+        y: prevTrans.y + moveMouseY
+      }));
+      
+      setStartPoint({ x: mouseX, y: mouseY});// 마우스 좌표 실시간 반영(안해주면 기하급수로 늘어남)
+      setMovePoint({ x: moveMouseX, y: moveMouseY})
+    }
+  }
+
+  // 마우스 뗐을 때 해제
+  const handleMapUnclick = (e) => {
+    const svgMaP = svgRef.current
+    const rect = svgMaP.getBoundingClientRect();
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+
+    setIsDrag(false);
+
+    const distanceX = Math.abs(mouseX - movePoint.x);
+    const distanceY = Math.abs(mouseY - movePoint.y);
+    if (distanceX < dragThreshold && distanceY < dragThreshold) {
+      handleClick(e);  // 이동 거리가 작을 경우 클릭 이벤트 실행
+    }
+  }
+
+  // 범위 밖으로 나갔을 때 해제
+  const handleMouseOut = () => {
+    setIsDrag(false);
+  }
+
+
+  //브라우저에서 휠 이벤트는 기본적으로 passive 모드로 처리되기 때문에 non-passive 모드로 설정
   // mapScale, mapTranslate가 변할 때 마다 실행
   useEffect(() => {
     // svgRef로 svg에 접근
@@ -98,7 +163,7 @@ const Map = ({ setToggleList}) => {
           {tooltipContent}
         </div>
       )}
-      <svg ref={svgRef} width="722" height="514.8">
+      <svg ref={svgRef} onMouseDown={handleMapClick} onMouseMove={handleDragMove} onMouseUp={handleMapUnclick} onMouseLeave={handleMouseOut} width="722" height="514.8">
         <g transform={`translate(${mapTranslate.x}, ${mapTranslate.y}) scale(${mapScale})`}>
           {maps.map((el, idx) => (
             <path
