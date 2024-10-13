@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useDispatch} from "react-redux"
 
-import { changeLoca } from '../store/locationSlice.js'
+import { changeLocation } from '../store/locationSlice.js'
 
 import * as TH from '../style/style'; // 스타일 컴포넌트 임포트
 import maps from '../data/HKmap.js'; // 지도 데이터 임포트
@@ -18,10 +18,16 @@ const Map = ({ setToggleList}) => {
   const [mapTranslate, setMapTranslate] = useState({ x: 0, y: 0 }); // 이동 상태 관리
   
   const [isDrag, setIsDrag] = useState(false); // 마우스를 클릭 여부
-  const [startPoint, setStartPoint] = useState({x: 0, y: 0}); // 드래그 하기 위해 찍은 위치 값
+  const [latelyPoint, setLatelyPoint] = useState({x: 0, y: 0}); // 드래그 하기 위해 찍히고 있는 위치 값
+  const [startPoint, setStartPoint] = useState({x: 0, y: 0}); // 맨처음 찍었던 위치
   const [movePoint, setMovePoint] = useState({x:0, y:0}); // 드래그된 거리
 
-  const dragThreshold = 5;
+  const dragThreshold = 3;
+
+  let minX = -300;
+  let maxX = 300;
+  let minY = -300;
+  let maxY = 300;
 
   const handleMouseEnter = (el) => {
     setHoveredArea(el.id); // 호버된 지역 상태 업데이트
@@ -74,7 +80,7 @@ const Map = ({ setToggleList}) => {
     setMapTranslate({ x: newTranslateX, y: newTranslateY }); // 이동 상태 업데이트
   }
 
-  const handleMapClick = (e) => {
+  const handleMouseDown = (e) => {
     const svgMaP = svgRef.current
     const rect = svgMaP.getBoundingClientRect();
 
@@ -82,8 +88,9 @@ const Map = ({ setToggleList}) => {
     const mouseY = e.clientY - rect.top;
 
     //최초 찍은 마우스 좌표
-    setStartPoint({x: mouseX, y: mouseY})
-    setIsDrag(true)
+    setLatelyPoint({x: mouseX, y: mouseY});
+    setStartPoint({x: mouseX, y: mouseY});
+    setIsDrag(true);
   }
   
   const handleDragMove = (e) => {
@@ -94,24 +101,30 @@ const Map = ({ setToggleList}) => {
     const mouseY = e.clientY - rect.top;
 
     // 이동한 좌표 - 최초찍은 마우스 좌표(변동)
-    const moveMouseX = mouseX - startPoint.x
-    const moveMouseY = mouseY - startPoint.y
+    const moveMouseX = mouseX - latelyPoint.x
+    const moveMouseY = mouseY - latelyPoint.y
     
     // 클릭이 유지되고 있을 때
     // 현지 위치에서 이동한 거리만큼 이동
     if(isDrag){
-      setMapTranslate((prevTrans) => ({ 
-        x: prevTrans.x + moveMouseX, 
-        y: prevTrans.y + moveMouseY
-      }));
+      setMapTranslate((prevTrans) => { 
+        const reMinX = minX * mapScale
+        const reMinY = minY * mapScale
+        const reMaxX = maxX * mapScale
+        const reMaxY = maxY * mapScale
+
+        const newX = Math.max(reMinX, Math.min(prevTrans.x + moveMouseX, reMaxX));
+        const newY = Math.max(reMinY, Math.min(prevTrans.y + moveMouseY, reMaxY));
+        return { x: newX, y: newY };
+      });
       
-      setStartPoint({ x: mouseX, y: mouseY});// 마우스 좌표 실시간 반영(안해주면 기하급수로 늘어남)
+      setLatelyPoint({ x: mouseX, y: mouseY});// 마우스 좌표 실시간 반영(안해주면 기하급수로 늘어남)
       setMovePoint({ x: moveMouseX, y: moveMouseY})
     }
   }
 
   // 마우스 뗐을 때 해제
-  const handleMapUnclick = (e) => {
+  const handleMapMouseUp = (e) => {
     const svgMaP = svgRef.current
     const rect = svgMaP.getBoundingClientRect();
 
@@ -120,10 +133,18 @@ const Map = ({ setToggleList}) => {
 
     setIsDrag(false);
 
-    const distanceX = Math.abs(mouseX - movePoint.x);
-    const distanceY = Math.abs(mouseY - movePoint.y);
+    const distanceX = Math.abs(mouseX - startPoint.x);
+    const distanceY = Math.abs(mouseY - startPoint.y);
+
+    console.log(`x축 : ${distanceX} / y축 : ${distanceY}`)
+    // console.log(`x축 이동거리 : ${mouseX} / y축 이동거리ㅍ : ${mouseY}`)
+
+
     if (distanceX < dragThreshold && distanceY < dragThreshold) {
-      handleClick(e);  // 이동 거리가 작을 경우 클릭 이벤트 실행
+      const el = e.target; // 현재 클릭된 요소
+      if (el.tagName === 'path') {
+        handleClick(el);  // 이동 거리가 작을 경우 클릭 이벤트 실행
+      }
     }
   }
 
@@ -153,7 +174,9 @@ const Map = ({ setToggleList}) => {
     };
   }, [mapScale, mapTranslate]);
 
-  dispatch(changeLoca(clickedArea))
+  useEffect(() => {
+    dispatch(changeLocation(clickedArea))
+  },[clickedArea, dispatch])
 
   return (
     <TH.StyledMap>
@@ -163,7 +186,7 @@ const Map = ({ setToggleList}) => {
           {tooltipContent}
         </div>
       )}
-      <svg ref={svgRef} onMouseDown={handleMapClick} onMouseMove={handleDragMove} onMouseUp={handleMapUnclick} onMouseLeave={handleMouseOut} width="722" height="514.8">
+      <svg ref={svgRef} onMouseDown={handleMouseDown} onMouseMove={handleDragMove} onMouseUp={handleMapMouseUp} onMouseLeave={handleMouseOut} width="722" height="514.8">
         <g transform={`translate(${mapTranslate.x}, ${mapTranslate.y}) scale(${mapScale})`}>
           {maps.map((el, idx) => (
             <path
