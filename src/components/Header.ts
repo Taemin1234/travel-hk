@@ -7,6 +7,11 @@ import IconCafe from '../assets/img/icon/ico-cafe.png'
 import IconPub from '../assets/img/icon/ico-pub.png'
 import IconRest from '../assets/img/icon/ico-restaurant.png'
 
+interface HeaderProps {
+    tab:number,
+    
+}
+
 function Header({tab, setTab, setToggleList}) {
 
     return (

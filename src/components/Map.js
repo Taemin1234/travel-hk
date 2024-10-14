@@ -20,7 +20,7 @@ const Map = ({ setToggleList}) => {
   const [isDrag, setIsDrag] = useState(false); // 마우스를 클릭 여부
   const [latelyPoint, setLatelyPoint] = useState({x: 0, y: 0}); // 드래그 하기 위해 찍히고 있는 위치 값
   const [startPoint, setStartPoint] = useState({x: 0, y: 0}); // 맨처음 찍었던 위치
-  const [movePoint, setMovePoint] = useState({x:0, y:0}); // 드래그된 거리
+  // const [movePoint, setMovePoint] = useState({x:0, y:0}); // 드래그된 거리
 
   const dragThreshold = 3;
 
@@ -119,7 +119,7 @@ const Map = ({ setToggleList}) => {
       });
       
       setLatelyPoint({ x: mouseX, y: mouseY});// 마우스 좌표 실시간 반영(안해주면 기하급수로 늘어남)
-      setMovePoint({ x: moveMouseX, y: moveMouseY})
+      // setMovePoint({ x: moveMouseX, y: moveMouseY})
     }
   }
 

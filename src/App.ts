@@ -22,8 +22,8 @@ const GlobalStyle = createGlobalStyle`
 
 
 function App() {
-  let [tab, setTab] = useState(0)
-  const [toggleList, setToggleList] = useState(0)
+  let [tab, setTab] = useState<number>(0)
+  const [toggleList, setToggleList] = useState<number>(0)
   let ctg = ['hotels', 'restaurant', 'cafe', 'pub', 'sites'][tab];
 
   return (

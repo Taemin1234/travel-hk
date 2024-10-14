@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "es6",  // 최신 JavaScript 기능 사용
+    "lib": ["dom", "es2015"],  // 필요한 라이브러리
+    "allowJs": true,  // JavaScript 파일 컴파일 허용
+    "jsx": "react",  // JSX 변환 방식
+    "module": "commonjs",  // 모듈 시스템
+    "moduleResolution": "node",  // 모듈 해석 방식
+    "skipLibCheck": true,  // 라이브러리 타입 검사 건너뜀
+    "esModuleInterop": true,  // ES 모듈 호환성
+    "strict": true,  // 모든 엄격한 타입 검사 활성화
+    "noImplicitAny": true,  // 암시적 any 타입 허용하지 않음
+    "strictNullChecks": true,  // null, undefined 엄격하게 검사
+    "strictFunctionTypes": true,  // 함수 타입 엄격하게 검사
+    "strictBindCallApply": true,  // bind, call, apply 엄격하게 검사
+    "strictPropertyInitialization": true,  // 속성 초기화 엄격하게 검사
+    "noUnusedLocals": true,  // 사용하지 않는 지역 변수 허용하지 않음
+    "noUnusedParameters": true,  // 사용하지 않는 매개변수 허용하지 않음
+    "noImplicitReturns": true,  // 암시적 반환 허용하지 않음
+    "noFallthroughCasesInSwitch": true  // switch 문에서 누락된 case 허용하지 않음
+  },
+  "include": ["src"]  // 포함할 파일
+}
