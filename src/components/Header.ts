@@ -1,4 +1,3 @@
-import React from 'react';
 import * as TH from '../style/style'
 
 import IconBed from '../assets/img/icon/ico-bed.png'

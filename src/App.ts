@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-      <GlobalStyle/>
+      <GlobalStyle />
       <Header tab={tab} setTab={setTab} setToggleList={setToggleList}/>
       {/* <TabContent tab={tab}/> */}
       <TravelInfo category={ctg} toggleList={toggleList} setToggleList={setToggleList}/>
