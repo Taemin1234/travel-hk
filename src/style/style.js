@@ -2,6 +2,10 @@ import styled, { css } from "styled-components";
 import heart_empty from '../assets/img/icon/heart_empty.png';
 import heart_full from '../assets/img/icon/heart_full.png';
 
+interface GnbButtonProps {
+    $isActive: boolean;
+}
+
 //header
 export const MHeader = styled.header`
     text-align: center;
@@ -31,7 +35,7 @@ export const List = styled.nav`
     }
 `
 
-export const GnbButton = styled.button`
+export const GnbButton = styled.button<GnbButtonProps>`
     width: 100%;
     height: 100%;
     padding: 20px 10px;

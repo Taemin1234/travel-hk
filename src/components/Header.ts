@@ -8,10 +8,11 @@ import IconRest from '../assets/img/icon/ico-restaurant.png'
 
 interface HeaderProps {
     tab:number,
-    
+    setTab: React.Dispatch<React.SetStateAction<number>>,
+    setToggleList : React.Dispatch<React.SetStateAction<number>>
 }
 
-function Header({tab, setTab, setToggleList}) {
+function Header({tab, setTab, setToggleList}:HeaderProps) {
 
     return (
         <TH.MHeader>
