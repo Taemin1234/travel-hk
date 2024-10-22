@@ -2,10 +2,6 @@ import styled, { css } from "styled-components";
 import heart_empty from '../assets/img/icon/heart_empty.png';
 import heart_full from '../assets/img/icon/heart_full.png';
 
-interface GnbButtonProps {
-    $isActive: boolean;
-}
-
 //header
 export const MHeader = styled.header`
     text-align: center;
@@ -35,12 +31,12 @@ export const List = styled.nav`
     }
 `
 
-export const GnbButton = styled.button<GnbButtonProps>`
+export const GnbButton = styled.button`
     width: 100%;
     height: 100%;
     padding: 20px 10px;
-    background-color: ${({ $isActive }) => ($isActive ? "#FF4C4C" : "#333")};
-    border-bottom: ${({ $isActive }) => ($isActive ? "solid 3px  #fff" : "none")};
+    background-color: ${({ isActive }) => (isActive ? "#FF4C4C" : "#333")};
+    border-bottom: ${({ isActive }) => (isActive ? "solid 3px  #fff" : "none")};
     font-size: 18px;
     box-sizing: border-box;
     cursor: pointer;
