@@ -6,8 +6,15 @@ import { changeLocation } from '../store/locationSlice.js'
 import * as TH from '../style/style'; // 스타일 컴포넌트 임포트
 import maps from '../data/HKmap.js'; // 지도 데이터 임포트
 
+interface MapProps {
+  key?:number,
+  id:string,
+  ko:string,
+  d:string
+}
+
 const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateAction<number>> }) => {
-  const svgRef = useRef();
+  const svgRef = useRef<SVGSVGElement | null>(null);
   const dispatch = useDispatch();
 
   const [hoveredArea, setHoveredArea] = useState(''); // 호버된 지역 상태
@@ -30,7 +37,7 @@ const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateActi
   let maxY = 300;
 
   //el은 map의 모든 요소의 타입을 지정해주어야한다.
-  const handleMouseEnter = (el) => {
+  const handleMouseEnter = (el:MapProps) => {
     setHoveredArea(el.id); // 호버된 지역 상태 업데이트
     setTooltipContent(el.ko); // 툴팁 내용 설정
   };
@@ -40,15 +47,15 @@ const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateActi
     setTooltipContent(''); // 툴팁 내용 초기화
   };
 
-  const handleClick = (el) => {
+  const handleClick = (el:MapProps) => {
     setClickedArea(el.id); // 클릭된 지역 상태 업데이트
     setToggleList(0)
   };
   
-  const handleMapScale = (e) => {
+  const handleMapScale = (e:React.WheelEvent<SVGSVGElement>) => {
     e.preventDefault(); // 기본 스크롤 막기
 
-    const svgMaP = svgRef.current
+    const svgMaP = svgRef.current as SVGSVGElement;
     const rect = svgMaP.getBoundingClientRect(); // SVG의 위치 및 크기 정보 가져오기
 
     // 마우스 위치를 SVG 좌표계로 변환
@@ -81,8 +88,8 @@ const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateActi
     setMapTranslate({ x: newTranslateX, y: newTranslateY }); // 이동 상태 업데이트
   }
 
-  const handleMouseDown = (e) => {
-    const svgMaP = svgRef.current
+  const handleMouseDown = (e:React.WheelEvent<SVGSVGElement>) => {
+    const svgMaP = svgRef.current as SVGSVGElement
     const rect = svgMaP.getBoundingClientRect();
 
     const mouseX = e.clientX - rect.left;
@@ -94,8 +101,8 @@ const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateActi
     setIsDrag(true);
   }
   
-  const handleDragMove = (e) => {
-    const svgMaP = svgRef.current
+  const handleDragMove = (e:React.WheelEvent<SVGSVGElement>) => {
+    const svgMaP = svgRef.current as SVGSVGElement
     const rect = svgMaP.getBoundingClientRect();
 
     const mouseX = e.clientX - rect.left;
@@ -125,8 +132,8 @@ const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateActi
   }
 
   // 마우스 뗐을 때 해제
-  const handleMapMouseUp = (e) => {
-    const svgMaP = svgRef.current
+  const handleMapMouseUp = (e:React.WheelEvent<SVGSVGElement>) => {
+    const svgMaP = svgRef.current as SVGSVGElement
     const rect = svgMaP.getBoundingClientRect();
 
     const mouseX = e.clientX - rect.left;
@@ -161,7 +168,7 @@ const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateActi
     // svgRef로 svg에 접근
     const svgMap = svgRef.current;
     // 휠 이벤트가 발생했을 때 호출
-    const handleWheel = (e) => {
+    const handleWheel = (e:React.WheelEvent<SVGSVGElement>) => {
       //확대와 preventDefault 호출
       handleMapScale(e);
     };
@@ -193,7 +200,7 @@ const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateActi
             <path
               key={idx}
               id={el.id}
-              title={el.ko}
+              data-title={el.ko}
               className={clickedArea === el.id ? 'clicked' : ''}
               d={el.d}
               onMouseEnter={() => handleMouseEnter(el)} // 호버 시 처리
