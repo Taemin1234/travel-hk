@@ -12,21 +12,25 @@ interface MapProps {
   ko:string,
   d:string
 }
+interface Translate {
+  x: number;
+  y: number;
+}
 
 const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateAction<number>> }) => {
   const svgRef = useRef<SVGSVGElement | null>(null);
   const dispatch = useDispatch();
 
-  const [hoveredArea, setHoveredArea] = useState(''); // 호버된 지역 상태
-  const [clickedArea, setClickedArea] = useState(''); // 클릭된 지역 상태
-  const [tooltipContent, setTooltipContent] = useState(''); // 툴팁 내용 상태
+  const [hoveredArea, setHoveredArea] = useState<string>(''); // 호버된 지역 상태
+  const [clickedArea, setClickedArea] = useState<string>(''); // 클릭된 지역 상태
+  const [tooltipContent, setTooltipContent] = useState<string>(''); // 툴팁 내용 상태
   
-  const [mapScale, setMapScale] = useState(1.1); //스크롤 시 지도 크기 상태
-  const [mapTranslate, setMapTranslate] = useState({ x: 0, y: 0 }); // 이동 상태 관리
+  const [mapScale, setMapScale] = useState<number>(1.1); //스크롤 시 지도 크기 상태
+  const [mapTranslate, setMapTranslate] = useState<Translate>({ x: 0, y: 0 }); // 이동 상태 관리
   
-  const [isDrag, setIsDrag] = useState(false); // 마우스를 클릭 여부
-  const [latelyPoint, setLatelyPoint] = useState({x: 0, y: 0}); // 드래그 하기 위해 찍히고 있는 위치 값
-  const [startPoint, setStartPoint] = useState({x: 0, y: 0}); // 맨처음 찍었던 위치
+  const [isDrag, setIsDrag] = useState<boolean>(false); // 마우스를 클릭 여부
+  const [latelyPoint, setLatelyPoint] = useState<Translate>({x: 0, y: 0}); // 드래그 하기 위해 찍히고 있는 위치 값
+  const [startPoint, setStartPoint] = useState<Translate>({x: 0, y: 0}); // 맨처음 찍었던 위치
   // const [movePoint, setMovePoint] = useState({x:0, y:0}); // 드래그된 거리
 
   const dragThreshold = 3;
@@ -55,8 +59,10 @@ const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateActi
   const handleMapScale = (e:React.WheelEvent<SVGSVGElement>) => {
     e.preventDefault(); // 기본 스크롤 막기
 
-    const svgMaP = svgRef.current as SVGSVGElement;
-    const rect = svgMaP.getBoundingClientRect(); // SVG의 위치 및 크기 정보 가져오기
+    const svgMap = svgRef.current
+    if(!svgMap) return;
+
+    const rect = svgMap.getBoundingClientRect(); // SVG의 위치 및 크기 정보 가져오기
 
     // 마우스 위치를 SVG 좌표계로 변환
     // 마우스 위치 - svg 지도 위치 = 지도 내에서 마우스 위치
@@ -89,8 +95,9 @@ const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateActi
   }
 
   const handleMouseDown = (e:React.WheelEvent<SVGSVGElement>) => {
-    const svgMaP = svgRef.current as SVGSVGElement
-    const rect = svgMaP.getBoundingClientRect();
+    const svgMap = svgRef.current;
+    if (!svgMap) return;
+    const rect = svgMap.getBoundingClientRect();
 
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
@@ -102,8 +109,9 @@ const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateActi
   }
   
   const handleDragMove = (e:React.WheelEvent<SVGSVGElement>) => {
-    const svgMaP = svgRef.current as SVGSVGElement
-    const rect = svgMaP.getBoundingClientRect();
+    const svgMap = svgRef.current;
+    if (!svgMap || !isDrag) return;
+    const rect = svgMap.getBoundingClientRect();
 
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
@@ -133,8 +141,9 @@ const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateActi
 
   // 마우스 뗐을 때 해제
   const handleMapMouseUp = (e:React.WheelEvent<SVGSVGElement>) => {
-    const svgMaP = svgRef.current as SVGSVGElement
-    const rect = svgMaP.getBoundingClientRect();
+    const svgMap = svgRef.current;
+    if (!svgMap) return;
+    const rect = svgMap.getBoundingClientRect();
 
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
@@ -149,9 +158,10 @@ const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateActi
 
 
     if (distanceX < dragThreshold && distanceY < dragThreshold) {
-      const el = e.target; // 현재 클릭된 요소
+      const el = e.target as SVGPathElement; // 현재 클릭된 요소
       if (el.tagName === 'path') {
-        handleClick(el);  // 이동 거리가 작을 경우 클릭 이벤트 실행
+        handleClick({ id: el.id, ko: el.getAttribute("data-title") || "", d: "" });
+        //handleClick(el);  // 이동 거리가 작을 경우 클릭 이벤트 실행
       }
     }
   }
@@ -168,9 +178,10 @@ const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateActi
     // svgRef로 svg에 접근
     const svgMap = svgRef.current;
     // 휠 이벤트가 발생했을 때 호출
-    const handleWheel = (e:React.WheelEvent<SVGSVGElement>) => {
+   if(svgMap) {
+    const handleWheel = (e: WheelEvent) => {
       //확대와 preventDefault 호출
-      handleMapScale(e);
+      handleMapScale(e as unknown as React.WheelEvent<SVGSVGElement>);
     };
 
     // 이벤트 리스너 추가
@@ -180,6 +191,7 @@ const Map = ({ setToggleList}:{ setToggleList: React.Dispatch<React.SetStateActi
     return () => {
       svgMap.removeEventListener('wheel', handleWheel);
     };
+   }
   }, [mapScale, mapTranslate]);
 
   useEffect(() => {
