@@ -23,7 +23,11 @@ interface DataItem {
 interface DistrictData {
     [district: string]: {
         k_name: string;
-        [category: string]: DataItem[] | string;
+        hotels?: DataItem[];
+        restaurant?: DataItem[];
+        cafe?: DataItem[];
+        pub?: DataItem[];
+        sites?: DataItem[];
     }
 }
 
@@ -60,12 +64,12 @@ function InfoList({category, toggleList, setToggleList}:InfoListProps) {
                 {datas.map((el, i) => {
                     return (
                         <li onClick={() => handleOpen(i)} key={i}>
-                            <TH.NameTag $listopen={toggleList === i}>
+                            <TH.NameTag listOpen={toggleList === i}>
                                 {i+1}. {el.name}
                                 {/* {toggleList === i ? <LikeShortcut likeLeng={el.name || ''} /> : null} */}
                                 <LikeShortcut likeLeng={el.name || ''} />
                             </TH.NameTag>
-                            <TH.ContBox $listopen={toggleList === i}>
+                            <TH.ContBox listOpen={toggleList === i}>
                                 <TH.ImgCont>
                                     <img src={el.img} alt={el.name} />
                                     <div>
