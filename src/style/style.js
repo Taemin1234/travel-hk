@@ -5,23 +5,27 @@ import heart_full from '../assets/img/icon/heart_full.png';
 //header
 export const MHeader = styled.header`
     text-align: center;
+    padding: 24px 0 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
 
     h1 {
         font-size: 30px;
-        font-weight: 700;
-        padding: 30px 0 20px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        color: #f6f7fb;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
     }
 `
 
 export const List = styled.nav`
 
     ul {
-        width: 600px;
-        height: 65px;
+        width: 620px;
+        height: 70px;
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 0 auto;
+        margin: 10px auto 0;
     }
 
     li {
@@ -34,12 +38,18 @@ export const List = styled.nav`
 export const GnbButton = styled.button`
     width: 100%;
     height: 100%;
-    padding: 20px 10px;
-    background-color: ${({ $isActive }) => ($isActive ? "#FF4C4C" : "#333")};
-    border-bottom: ${({ $isActive }) => ($isActive ? "solid 3px  #fff" : "none")};
-    font-size: 18px;
+    padding: 18px 12px;
+    margin-top: 20px;
+    background: ${({ $isActive }) => ($isActive ? "linear-gradient(135deg, #ff4c4c 0%, #ff6b5f 100%)" : "linear-gradient(135deg, #2a2a2f 0%, #24242a 100%)")};
+    border: 1px solid ${({ $isActive }) => ($isActive ? "rgba(255,255,255,0.35)" : "#2f2f36")};
+    color: #f8f8f8;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
     box-sizing: border-box;
     cursor: pointer;
+    box-shadow: ${({ $isActive }) => ($isActive ? "0 10px 28px rgba(255, 76, 76, 0.35)" : "0 6px 18px rgba(0,0,0,0.32)")};
+    transition: all 180ms ease;
 
     img {
         width: 25px;
@@ -49,7 +59,13 @@ export const GnbButton = styled.button`
     }
 
     &:hover {
-        background-color: ${({ $isActive }) => ($isActive ? "#FF4C4C" : "#444")};
+        background: ${({ $isActive }) => ($isActive ? "linear-gradient(135deg, #ff4c4c 0%, #ff7b6d 100%)" : "linear-gradient(135deg, #36363d 0%, #2d2d35 100%)")};
+        box-shadow: ${({ $isActive }) => ($isActive ? "0 12px 30px rgba(255, 76, 76, 0.45)" : "0 8px 22px rgba(0,0,0,0.38)")};
+    }
+
+    &:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25), 0 10px 28px rgba(255, 76, 76, 0.35);
     }
 `
 
@@ -66,37 +82,45 @@ const flexS = css`
 export const InfoWrap = styled.div`
     ${flexCn}
     max-width: 1200px;
-    /* height: auto; */
-    margin: 30px auto;
+    margin: 40px auto;
+    padding: 0 20px;
 `
 //Map 지도 화면
 export const StyledMap = styled.div`
     position: relative;
     display: flex;
     align-items: center;
-    background-color: #1e1e1e;
+    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.03), rgba(255,255,255,0)), #111119;
     max-width: 800px;
-    padding: 10px;
+    padding: 14px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
     box-sizing: border-box;
+    border: 1px solid #1f1f2a;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
 
   svg path {
     position: relative;
-    fill: #eee;
+    fill: #d7d7d7;
     cursor: pointer;
-    transition: fill 0.3s;
+    transition: fill 0.25s ease, stroke 0.25s ease;
+    stroke: #1c1c22;
+    stroke-width: 0.4;
     
     &:hover:not(.selected) {
-      fill: #FADBD8; // hover 시 변경될 배경색
+      fill: #f9e3e3; // hover 시 변경될 배경색
     }
     &:hover {
         fill: #EE1C25;
+        stroke: #fff;
+        stroke-width: 0.8;
     }
   }
 
   path.clicked {
     fill: #EE1C25;
+    stroke: #ffffff;
+    stroke-width: 1;
   }
 
 `;
@@ -105,15 +129,19 @@ export const StyledMap = styled.div`
 export const InfoListWrap = styled.div`
     width: 400px;
     /* height: 100%; */
-    padding: 25px;
-    background-color: #444;
+    padding: 26px;
+    background: linear-gradient(155deg, #14141b 0%, #1a1c24 100%);
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
+    border: 1px solid #222733;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
     box-sizing: border-box;
 
     .title {
         font-size: 24px;
-        font-weight: 700;
+        font-weight: 800;
+        color: #f6f7fb;
+        margin-bottom: 12px;
     }
 `
 export const NameTag = styled.div`
@@ -121,17 +149,32 @@ export const NameTag = styled.div`
     padding: 12px 40px 12px 10px;
     font-size: 18px;
     font-weight: 700;
-    background-color: ${({ $listopen }) => ($listopen ? "#FF4C4C" : "none")};
+    background: ${({ $listopen }) => ($listopen ? "rgba(255,76,76,0.18)" : "transparent")};
+    border-radius: 10px;
     cursor: pointer;
+    transition: all 160ms ease;
+
+    &:hover {
+        background: ${({ $listopen }) => ($listopen ? "rgba(255,76,76,0.22)" : "rgba(255,255,255,0.05)")};
+    }
 `
 
 export const InfoDataList = styled.ul`
     margin-top: 10px;
 
     li {
-        border-bottom: solid 1px #555;
+        border-bottom: solid 1px #2f3340;
+        padding: 6px 0 10px;
+
+        &:hover {
+            background: rgba(255, 76, 76, 0.06);
+            border-radius: 12px;
+        }
+
         img {
             width: 150px;
+            border-radius: 10px;
+            object-fit: cover;
         }
     }
 `
@@ -139,11 +182,13 @@ export const InfoDataList = styled.ul`
 export const ContBox = styled.div`
     display: ${({ $listopen }) => ($listopen ? "block" : "none")};
     padding: 10px 10px 12px;
+    transition: all 180ms ease;
 
     p {
         margin-top: 10px;
         font-weight: 18px;
         line-height: 1.1;
+        color: #dcdfe6;
     }
 `
 

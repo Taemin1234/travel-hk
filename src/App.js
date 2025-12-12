@@ -15,8 +15,11 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: #555;
-    color: #fff;
+    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.02), rgba(255,255,255,0)), #0f0f14;
+    color: #f5f6fa;
+    font-family: 'Inter', 'Noto Sans KR', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    padding-bottom: 40px;
   }
 `;
 
