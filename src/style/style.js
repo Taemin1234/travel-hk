@@ -35,8 +35,8 @@ export const GnbButton = styled.button`
     width: 100%;
     height: 100%;
     padding: 20px 10px;
-    background-color: ${({ isActive }) => (isActive ? "#FF4C4C" : "#333")};
-    border-bottom: ${({ isActive }) => (isActive ? "solid 3px  #fff" : "none")};
+    background-color: ${({ $isActive }) => ($isActive ? "#FF4C4C" : "#333")};
+    border-bottom: ${({ $isActive }) => ($isActive ? "solid 3px  #fff" : "none")};
     font-size: 18px;
     box-sizing: border-box;
     cursor: pointer;
@@ -49,7 +49,7 @@ export const GnbButton = styled.button`
     }
 
     &:hover {
-        background-color: ${({ isActive }) => (isActive ? "none" : "#444")};
+        background-color: ${({ $isActive }) => ($isActive ? "#FF4C4C" : "#444")};
     }
 `
 
