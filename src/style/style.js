@@ -6,7 +6,6 @@ import heart_full from '../assets/img/icon/heart_full.png';
 export const MHeader = styled.header`
     text-align: center;
     padding: 24px 0 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
 
     h1 {
         font-size: 30px;
@@ -18,6 +17,7 @@ export const MHeader = styled.header`
 `
 
 export const List = styled.nav`
+    margin-top: 30px;
 
     ul {
         width: 620px;
@@ -25,7 +25,7 @@ export const List = styled.nav`
         display: flex;
         justify-content: center;
         align-items: center;
-        margin: 10px auto 0;
+        margin: 0 auto ;
     }
 
     li {
@@ -39,7 +39,6 @@ export const GnbButton = styled.button`
     width: 100%;
     height: 100%;
     padding: 18px 12px;
-    margin-top: 20px;
     background: ${({ $isActive }) => ($isActive ? "linear-gradient(135deg, #ff4c4c 0%, #ff6b5f 100%)" : "linear-gradient(135deg, #2a2a2f 0%, #24242a 100%)")};
     border: 1px solid ${({ $isActive }) => ($isActive ? "rgba(255,255,255,0.35)" : "#2f2f36")};
     color: #f8f8f8;
@@ -187,7 +186,7 @@ export const ContBox = styled.div`
     p {
         margin-top: 10px;
         font-weight: 18px;
-        line-height: 1.1;
+        line-height: 1.2;
         color: #dcdfe6;
     }
 `

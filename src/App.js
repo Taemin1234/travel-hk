@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.02), rgba(255,255,255,0)), #0f0f14;
+    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.06), rgba(255,255,255,0)), #35353f;
     color: #f5f6fa;
     font-family: 'Inter', 'Noto Sans KR', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
